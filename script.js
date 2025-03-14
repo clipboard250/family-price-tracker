@@ -2,14 +2,22 @@
 // Load CSV data on page load
 let eggPriceData = {};
 
-// Auto-popup function (triggers after 1 min)
+// Auto-popup function (triggers after 1 min) with new design
 setTimeout(function() {
     let popup = document.createElement("div");
     popup.id = "autoPopup";
     popup.innerHTML = `
-        <p>Having fun? I taught myself coding with AI after a dev challenge. Now I’m full-stack (JS, HTML, Python, CSS) & built Gofer Content from scratch.<br>
-        <a href="https://buymeacoffee.com/gofercontent" target="_blank">Buy me a coffee ☕</a></p>
-        <button onclick="document.getElementById('autoPopup').style.display='none'">Close</button>`;
+        <div class="popup-container">
+            <div class="popup-header">
+                <span class="close-arrow" onclick="document.getElementById('autoPopup').style.display='none'">⬇</span>
+            </div>
+            <div class="popup-content">
+                <p>Like this tool?</p>
+                <p>I'm a copywriter who learned to code using AI.<br>
+                Coffee fuels my creativity (and future Gofer Content builds).<br>
+                <a href="https://buymeacoffee.com/gofercontent" target="_blank" class="coffee-button">Keep me coding ☕️</a></p>
+            </div>
+        </div>`;
     document.body.appendChild(popup);
     popup.style.display = "block";
 }, 60000); // Triggers after 1 minute
@@ -90,7 +98,7 @@ function updateChart(region) {
     });
 }
 
-// Dropdown search functionality
+// Improved Dropdown Formatting
 function setupDropdownSearch() {
     const dropdown = document.getElementById('region');
     dropdown.setAttribute('onchange', 'searchDropdown()');
@@ -112,6 +120,16 @@ function setupDropdownSearch() {
     });
 }
 
+// Statement about why only certain states are available
+function addStateInfoMessage() {
+    let infoBox = document.createElement("div");
+    infoBox.id = "stateInfoBox";
+    infoBox.innerHTML = `<p>Currently, we only have data for certain states. 
+    As users submit real-time egg prices, we will expand this for 2025. 
+    Want to contribute? Submit your prices with a verified receipt.</p>`;
+    document.body.appendChild(infoBox);
+}
+
 // Popups for data credibility (hover or tap-to-show)
 function setupPopups() {
     const faqItems = document.querySelectorAll('details');
@@ -130,4 +148,5 @@ window.onload = async function () {
     await loadEggPriceData();
     setupDropdownSearch();
     setupPopups();
+    addStateInfoMessage();
 };
