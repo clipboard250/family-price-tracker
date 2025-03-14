@@ -1,13 +1,27 @@
+
+// Load CSV data on page load
 let eggPriceData = {};
 
-// Load CSV data
+// Auto-popup function (triggers after 1 min)
+setTimeout(function() {
+    let popup = document.createElement("div");
+    popup.id = "autoPopup";
+    popup.innerHTML = `
+        <p>Having fun? I taught myself coding with AI after a dev challenge. Now I’m full-stack (JS, HTML, Python, CSS) & built Gofer Content from scratch.<br>
+        <a href="https://buymeacoffee.com/gofercontent" target="_blank">Buy me a coffee ☕</a></p>
+        <button onclick="document.getElementById('autoPopup').style.display='none'">Close</button>`;
+    document.body.appendChild(popup);
+    popup.style.display = "block";
+}, 60000); // Triggers after 1 minute
+
+// Fetch and parse CSV data
 async function loadEggPriceData() {
     const response = await fetch('egg_prices_2016_2025.csv');
     const data = await response.text();
     eggPriceData = parseCSV(data);
 }
 
-// Parse CSV into usable data
+// Convert CSV to JSON
 function parseCSV(csv) {
     const rows = csv.split('\n');
     const headers = rows[0].split(',');
@@ -44,7 +58,7 @@ function fetchEggPrice() {
     updateChart(region);
 }
 
-// Update the chart with selected region's data
+// Update chart with selected region's data
 function updateChart(region) {
     const labels = Object.keys(eggPriceData);
     const prices = labels.map(quarter => eggPriceData[quarter][region]);
@@ -76,62 +90,44 @@ function updateChart(region) {
     });
 }
 
-// Replace the date picker with a dropdown for quarters
-function setupQuarterDropdown() {
-    const dropdown = document.getElementById('quarter');
-    const quarters = Object.keys(eggPriceData);
+// Dropdown search functionality
+function setupDropdownSearch() {
+    const dropdown = document.getElementById('region');
+    dropdown.setAttribute('onchange', 'searchDropdown()');
 
-    dropdown.innerHTML = ''; // Clear existing options
-    quarters.forEach(q => {
-        const option = document.createElement('option');
-        option.value = q;
-        option.textContent = q;
-        dropdown.appendChild(option);
+    const searchBox = document.createElement('input');
+    searchBox.type = 'text';
+    searchBox.placeholder = 'Search states...';
+    searchBox.id = 'dropdownSearch';
+    searchBox.style.width = '100%';
+    searchBox.style.marginBottom = '10px';
+    dropdown.parentNode.insertBefore(searchBox, dropdown);
+
+    searchBox.addEventListener('keyup', function () {
+        let filter = searchBox.value.toUpperCase();
+        for (let i = 0; i < dropdown.options.length; i++) {
+            let txt = dropdown.options[i].text.toUpperCase();
+            dropdown.options[i].style.display = txt.includes(filter) ? '' : 'none';
+        }
     });
 }
 
+// Popups for data credibility (hover or tap-to-show)
+function setupPopups() {
+    const faqItems = document.querySelectorAll('details');
+    faqItems.forEach(item => {
+        let citation = document.createElement('span');
+        citation.className = 'tooltip-text';
+        citation.innerText = 'Data from USDA, BLS & verified sources.';
+        item.appendChild(citation);
+        item.addEventListener('mouseover', () => citation.style.visibility = 'visible');
+        item.addEventListener('mouseout', () => citation.style.visibility = 'hidden');
+    });
+}
+
+// Initialize page functions
 window.onload = async function () {
     await loadEggPriceData();
-    if (Object.keys(eggPriceData).length > 0) {
-        setupQuarterDropdown(); // Ensure data is available before setting dropdown
-    } else {
-        setTimeout(setupQuarterDropdown, 1000); // Wait and try again if needed
-    }
+    setupDropdownSearch();
+    setupPopups();
 };
-
-function setupQuarterDropdown() {
-    const dropdown = document.getElementById('quarter');
-    dropdown.innerHTML = ''; // Clear existing options
-
-    if (!eggPriceData || Object.keys(eggPriceData).length === 0) {
-        setTimeout(setupQuarterDropdown, 500); // Wait and retry if data isn’t ready
-        return;
-    }
-
-    Object.keys(eggPriceData).forEach(q => {
-        const option = document.createElement('option');
-        option.value = q;
-        option.textContent = q;
-        dropdown.appendChild(option);
-    });
-}
-
-
-function setupQuarterDropdown() {
-    const dropdown = document.getElementById('quarter');
-    dropdown.innerHTML = ''; // Clear existing options
-
-    if (!eggPriceData || Object.keys(eggPriceData).length === 0) {
-        setTimeout(setupQuarterDropdown, 500); // Wait and retry if data isn’t ready
-        return;
-    }
-
-    Object.keys(eggPriceData).forEach(q => {
-        const option = document.createElement('option');
-        option.value = q;
-        option.textContent = q;
-        dropdown.appendChild(option);
-    });
-}
-
-
