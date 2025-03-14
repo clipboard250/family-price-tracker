@@ -1,99 +1,176 @@
+/* General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #FFF8E7, #FFE5B4);
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #FFF8E7, #D2B48C); /* Subtle gradient from Cyber Yellow to Mocha Mousse */
     color: #333;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
+/* Header */
 header {
-    background-color: #F5DF4D;
+    background: linear-gradient(to right, #FFD300, #F5C16E);
     padding: 20px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
+/* Control Section */
 #controls {
     margin: 20px auto;
     padding: 20px;
     background: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
     display: inline-block;
 }
 
+/* Dropdowns & Buttons */
 select, button {
     font-size: 16px;
     margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 2px solid #CCC;
     border-radius: 5px;
 }
 
 button {
-    background-color: #88B04B;
+    background-color: #795548; /* Mocha Mousse */
     color: white;
     border: none;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #769941;
+    background-color: #5D4037;
 }
 
+/* Price Display */
 #price-display {
     margin: 20px auto;
-    padding: 15px;
+    padding: 20px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
 }
 
+/* Chart Container */
 #chart-container {
-    width: 80%;
+    width: 85%;
     margin: 30px auto;
-}
-
-canvas {
     background: white;
-    border-radius: 8px;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* FAQ Section */
 #faq {
     width: 80%;
     margin: 20px auto;
     text-align: left;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* FAQ Details */
 details {
     background: white;
     margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+details:hover {
+    background: #FFF2CC;
+}
+
+/* Footer */
 footer {
     background: #1e1e1e;
     color: white;
-    padding: 20px;
-    margin-top: 30px;
+    padding: 25px;
+    margin-top: 40px;
+    font-size: 16px;
 }
 
 footer a {
-    color: #F5DF4D;
+    color: #FFD300;
     text-decoration: none;
+    font-weight: bold;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
 
-footer a[target="_blank"] {
-    color: #F5DF4D;
+/* Popups */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color: #795548;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Auto-popup after 1 min */
+#autoPopup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #FFF8E7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+#autoPopup button {
+    margin-left: 10px;
+    background-color: #795548;
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
 }
