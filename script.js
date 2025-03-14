@@ -169,3 +169,46 @@ window.onload = async function () {
     setupPopups();
     addStateInfoMessage();
 };
+Text = `No valid data for ${state.toUpperCase()} in ${quarter}.`;
+    } else {
+        document.getElementById("price-output").innerText = `Price for ${state.toUpperCase()} in ${quarter}: $${price.toFixed(2)} per dozen.`;
+    }
+    updateChart(state);
+}
+
+// Update chart with selected state's data
+function updateChart(state) {
+    const labels = Object.keys(eggPriceData);
+    const prices = labels.map(quarter => eggPriceData[quarter][state]);
+
+    const ctx = document.getElementById('eggPriceChart').getContext('2d');
+    if (window.eggPriceChartInstance) {
+        window.eggPriceChartInstance.destroy();
+    }
+
+    window.eggPriceChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: `${state.toUpperCase()} Egg Prices`,
+                data: prices,
+                borderColor: '#F5DF4D',
+                backgroundColor: 'rgba(245, 223, 77, 0.2)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { title: { display: true, text: 'Quarter' } },
+                y: { title: { display: true, text: 'Price (USD per dozen)' }, beginAtZero: false }
+            }
+        }
+    });
+}
+
+// Initialize page functions
+window.onload = async function () {
+    await loadEggPriceData();
+};
