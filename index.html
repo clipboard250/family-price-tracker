@@ -13,26 +13,21 @@
     </header>
     
     <section id="controls">
-        <label for="region">Select Region:</label>
-        <select id="region">
-            <option value="us">U.S. Average</option>
-            <option value="california">California</option>
-            <option value="florida">Florida</option>
-            <option value="colorado">Colorado</option>
-            <option value="texas">Texas</option>
-            <option value="newyork">New York</option>
-            <option value="illinois">Illinois</option>
-        </select>
+        <label for="year">Select Year:</label>
+        <select id="year"></select>
 
         <label for="quarter">Select Quarter:</label>
         <select id="quarter"></select>
-        
+
+        <label for="state">Select State:</label>
+        <select id="state"></select>
+
         <button onclick="fetchEggPrice()">Get Data</button>
     </section>
 
     <section id="price-display">
         <h2>Price Data</h2>
-        <p id="price-output">Select a date and region to see prices.</p>
+        <p id="price-output">Select a date and state to see prices.</p>
     </section>
 
     <section id="chart-container">
@@ -65,7 +60,7 @@
     
     <footer>
         <p>Built by a copywriting strategist who cracked open coding—with a little help from engineer friends, coffee, and an unhealthy fascination with egg prices. 
-        | <a href="https://gofercontent.com" target="_blank">Gofer Content</a> | <a href="https://buymeacoffee.com/gofercontent" target="_blank">Buy me a coffee ☕️</a></p>
+        | <a href="https://gofercontent.com" target="_blank">Gofer Content</a> | <a href="https://buymeacoffee.com/gofercontent" target="_blank" class="coffee-button">Buy me a coffee ☕️</a></p>
     </footer>
 
     <script src="script.js"></script>
