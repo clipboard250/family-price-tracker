@@ -2,14 +2,14 @@
 // Load CSV data on page load
 let eggPriceData = {};
 
-// Auto-popup function (triggers after 1 min) with new design
+// Auto-popup function (triggers after 1 min) with collapsible behavior
 setTimeout(function() {
     let popup = document.createElement("div");
     popup.id = "autoPopup";
     popup.innerHTML = `
         <div class="popup-container">
             <div class="popup-header">
-                <span class="close-arrow" onclick="document.getElementById('autoPopup').style.display='none'">⬇</span>
+                <button class="collapse-btn" onclick="togglePopup()">−</button>
             </div>
             <div class="popup-content">
                 <p>Like this tool?</p>
@@ -22,11 +22,25 @@ setTimeout(function() {
     popup.style.display = "block";
 }, 60000); // Triggers after 1 minute
 
+// Function to collapse/expand popup
+function togglePopup() {
+    let popup = document.getElementById('autoPopup');
+    if (popup.style.height === "40px") {
+        popup.style.height = "auto";
+    } else {
+        popup.style.height = "40px";
+    }
+}
+
 // Fetch and parse CSV data
 async function loadEggPriceData() {
-    const response = await fetch('egg_prices_2016_2025.csv');
-    const data = await response.text();
-    eggPriceData = parseCSV(data);
+    try {
+        const response = await fetch('egg_prices_2016_2025.csv');
+        const data = await response.text();
+        eggPriceData = parseCSV(data);
+    } catch (error) {
+        console.error("Error loading CSV data:", error);
+    }
 }
 
 // Convert CSV to JSON
@@ -37,15 +51,16 @@ function parseCSV(csv) {
 
     for (let i = 1; i < rows.length; i++) {
         const values = rows[i].split(',');
+        if (values.length < 8) continue; // Ensure data integrity
         const quarter = values[0];
         jsonData[quarter] = {
-            us: parseFloat(values[1]),
-            california: parseFloat(values[2]),
-            florida: parseFloat(values[3]),
-            colorado: parseFloat(values[4]),
-            texas: parseFloat(values[5]),
-            newyork: parseFloat(values[6]),
-            illinois: parseFloat(values[7])
+            us: parseFloat(values[1]) || 0,
+            california: parseFloat(values[2]) || 0,
+            florida: parseFloat(values[3]) || 0,
+            colorado: parseFloat(values[4]) || 0,
+            texas: parseFloat(values[5]) || 0,
+            newyork: parseFloat(values[6]) || 0,
+            illinois: parseFloat(values[7]) || 0
         };
     }
     return jsonData;
@@ -62,7 +77,11 @@ function fetchEggPrice() {
     }
 
     const price = eggPriceData[quarter][region];
-    document.getElementById('price-output').innerText = `Price for ${region.toUpperCase()} in ${quarter}: $${price.toFixed(2)} per dozen.`;
+    if (isNaN(price)) {
+        document.getElementById('price-output').innerText = `No valid data for ${region.toUpperCase()} in ${quarter}.`;
+    } else {
+        document.getElementById('price-output').innerText = `Price for ${region.toUpperCase()} in ${quarter}: $${price.toFixed(2)} per dozen.`;
+    }
     updateChart(region);
 }
 
