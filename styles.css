@@ -1,146 +1,67 @@
-/* Import Custom Fonts */
-@font-face {
-    font-family: 'Archivo';
-    src: url('Archivo-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Archivo';
-    src: url('Archivo-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Archivo';
-    src: url('Archivo-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* General Styling */
+/* Apply Gradient Styling */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to bottom, #FFF8E7, #D2B48C); /* Subtle gradient */
+    background: linear-gradient(to bottom, #FFF8E7, #F5C16E);
     color: #333;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-/* Header */
-header {
-    background: linear-gradient(to right, #FFD300, #F5C16E);
+/* Improve Gradient Behind Price Data, Search Bar, and FAQ */
+#price-display, #controls, #faq {
+    background: linear-gradient(to bottom, #FFF1C1, #F5C16E);
     padding: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    font-family: 'Archivo', sans-serif;
-    letter-spacing: 1px;
-    text-transform: none; /* No all caps */
-}
-
-/* Control Section */
-#controls {
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    display: inline-block;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
 }
 
-/* Dropdowns & Buttons */
-select, button {
+/* Dropdown Styling Fix */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: 'Archivo', sans-serif;
     font-size: 16px;
     margin: 10px;
     padding: 12px;
     border: 2px solid #CCC;
     border-radius: 5px;
-    font-family: 'Archivo', sans-serif;
-}
-
-button {
-    background-color: #795548; /* Mocha Mousse */
-    color: white;
-    border: none;
+    background-color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    font-family: 'Archivo', sans-serif;
+    position: relative;
 }
 
-button:hover {
-    background-color: #5D4037;
+/* Custom dropdown arrow for all browsers */
+select::after {
+    content: '▼';
+    font-size: 14px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
-/* Price Display */
-#price-display {
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Archivo', sans-serif;
+/* Ensure Dropdown Consistency */
+select::-ms-expand {
+    display: none; /* Hides default arrow on IE/Edge */
 }
 
-/* Chart Container */
-#chart-container {
-    width: 85%;
-    margin: 30px auto;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+/* Dropdown Focus State */
+select:focus {
+    border-color: #795548;
+    outline: none;
 }
 
-/* FAQ Section */
-#faq {
-    width: 80%;
-    margin: 20px auto;
-    text-align: left;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* FAQ Details */
-details {
-    background: white;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    font-family: 'Archivo', sans-serif;
-}
-
-details:hover {
-    background: #FFF2CC;
-}
-
-/* Footer */
+/* Footer Styling Update */
 footer {
     background: #1e1e1e;
     color: white;
     padding: 25px;
     margin-top: 40px;
     font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 footer a {
@@ -153,59 +74,43 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Popups */
-.tooltip {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
+/* Graph Styling - Reduce White Background */
+#chart-container {
+    background: linear-gradient(to bottom, #FFF8E7, #E5A663);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    width: 85%;
+    margin: 20px auto;
 }
 
-.tooltip-text {
-    visibility: hidden;
-    width: 220px;
-    background-color: #795548;
-    color: white;
-    text-align: center;
-    padding: 8px;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -110px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 14px;
-}
-
-.tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* Auto-popup after 1 min */
-#autoPopup {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #FFF8E7;
+/* Improve FAQ Box Styling */
+#faq details {
+    background: white;
+    margin: 10px 0;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    color: #333;
-    font-family: 'Archivo', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#autoPopup button {
-    margin-left: 10px;
-    background-color: #795548;
-    border: none;
-    color: white;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Archivo', sans-serif;
+#faq details:hover {
+    background: #FFF2CC;
+}
+
+/* Improve Dropdown Styling on Mobile */
+@media (max-width: 768px) {
+    #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    select {
+        width: 90%;
+    }
 }
