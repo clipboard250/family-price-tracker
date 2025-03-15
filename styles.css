@@ -44,3 +44,47 @@ canvas {
         margin: auto;
     }
 }
+ #E5A663);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    width: 85%;
+    margin: 20px auto;
+}
+
+/* Make Graph Line Bolder */
+.chartjs-render-monitor {
+    stroke-width: 3px !important; /* Makes the graph line bolder */
+}
+
+/* Reduce White Background Around Graph */
+canvas {
+    background: transparent !important;
+}
+
+/* Reposition Graph to Half-Page Width with FAQ on the Right */
+@media (min-width: 1024px) {
+    #content-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    
+    #chart-container {
+        width: 55%; /* Graph takes up half the screen */
+        margin-right: 20px;
+    }
+    
+    #faq {
+        width: 40%;
+    }
+}
+
+/* Ensure Responsive Design */
+@media (max-width: 768px) {
+    #chart-container, #faq {
+        width: 90%;
+        margin: auto;
+    }
+}
