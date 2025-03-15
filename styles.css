@@ -1,60 +1,40 @@
-/* Apply Gradient Styling */
-body {
-    background: linear-gradient(to bottom, #FFF8E7, #F5C16E);
-    color: #333;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+/* Apply Font Fix (Ensure Archivo & Montserrat Stay Applied) */
+body, h1, h2, h3, h4, h5, h6, p, button, select, details, summary {
+    font-family: 'Archivo', 'Montserrat', sans-serif !important;
 }
 
-/* Improve Gradient Behind Price Data, Search Bar, and FAQ */
-#price-display, #controls, #faq {
+/* Apply Gradient to FAQ Boxes */
+#faq details {
     background: linear-gradient(to bottom, #FFF1C1, #F5C16E);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#faq details:hover {
+    background: linear-gradient(to bottom, #FFD700, #F5C16E);
+}
+
+/* Ensure Dropdown Styling is Consistent */
+select {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+}
+
+/* Improve Readability for Gradient Cards */
+#price-display, #controls, #faq {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
 }
 
-/* Dropdown Styling Fix */
-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-family: 'Archivo', sans-serif;
-    font-size: 16px;
-    margin: 10px;
-    padding: 12px;
-    border: 2px solid #CCC;
-    border-radius: 5px;
-    background-color: white;
-    cursor: pointer;
-    position: relative;
-}
-
-/* Custom dropdown arrow for all browsers */
-select::after {
-    content: '▼';
-    font-size: 14px;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-/* Ensure Dropdown Consistency */
-select::-ms-expand {
-    display: none; /* Hides default arrow on IE/Edge */
-}
-
-/* Dropdown Focus State */
-select:focus {
-    border-color: #795548;
-    outline: none;
-}
-
-/* Footer Styling Update */
+/* Footer Styling */
 footer {
     background: #1e1e1e;
     color: white;
@@ -72,45 +52,4 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* Graph Styling - Reduce White Background */
-#chart-container {
-    background: linear-gradient(to bottom, #FFF8E7, #E5A663);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    width: 85%;
-    margin: 20px auto;
-}
-
-/* Improve FAQ Box Styling */
-#faq details {
-    background: white;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#faq details:hover {
-    background: #FFF2CC;
-}
-
-/* Improve Dropdown Styling on Mobile */
-@media (max-width: 768px) {
-    #controls {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-    }
-
-    select {
-        width: 90%;
-    }
 }
