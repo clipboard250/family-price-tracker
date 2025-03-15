@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Graph Container
+    // Ensure Elements Exist Before Accessing Them
     const chartContainer = document.getElementById("chart-container");
     const chartInstructions = document.getElementById("chart-instructions");
     
-    // Default Placeholder Before Graph Appears
-    chartInstructions.innerHTML = "📊 Select a location to reveal the graph.";
-    
+    if (chartInstructions) {
+        chartInstructions.innerHTML = "📊 Select a location to reveal the graph.";
+    }
+
     async function fetchEggPrice() {
         const year = document.getElementById("year").value;
         const quarter = document.getElementById("quarter").value;
@@ -23,10 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (price) {
             priceOutput.innerHTML = `Price for ${state.toUpperCase()} in ${year}-${quarter}: $${price} per dozen.`;
 
-            // Update graph instructions AFTER data loads
-            chartInstructions.innerHTML = "📈 The graph shows all historical prices (2016–2025). Some past quarters had extreme price spikes due to market changes.";
+            // Ensure chartInstructions exists before modifying
+            if (chartInstructions) {
+                chartInstructions.innerHTML = "📈 The graph shows all historical prices (2016–2025). Some past quarters had extreme price spikes due to market changes.";
+            }
 
-            // Generate Graph (Replace this with actual Chart.js graph update function)
+            // Generate Graph (Replace with actual Chart.js update function)
             updateGraph(year, quarter, state, price);
         } else {
             priceOutput.innerHTML = "Data unavailable for selected period.";
@@ -51,4 +54,3 @@ document.addEventListener("DOMContentLoaded", function() {
     // Assign fetch function to button
     document.querySelector("button").addEventListener("click", fetchEggPrice);
 });
-
