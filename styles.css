@@ -1,55 +1,46 @@
-/* Apply Font Fix (Ensure Archivo & Montserrat Stay Applied) */
-body, h1, h2, h3, h4, h5, h6, p, button, select, details, summary {
-    font-family: 'Archivo', 'Montserrat', sans-serif !important;
-}
-
-/* Apply Gradient to FAQ Boxes */
-#faq details {
-    background: linear-gradient(to bottom, #FFF1C1, #F5C16E);
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#faq details:hover {
-    background: linear-gradient(to bottom, #FFD700, #F5C16E);
-}
-
-/* Ensure Dropdown Styling is Consistent */
-select {
-    font-family: 'Archivo', sans-serif;
-    font-size: 16px;
-}
-
-/* Improve Readability for Gradient Cards */
-#price-display, #controls, #faq {
-    padding: 20px;
+/* Improve Graph Styling */
+#chart-container {
+    background: linear-gradient(to bottom, #FFF8E7, #E5A663);
     border-radius: 10px;
+    padding: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    margin-bottom: 20px;
+    width: 85%;
+    margin: 20px auto;
 }
 
-/* Footer Styling */
-footer {
-    background: #1e1e1e;
-    color: white;
-    padding: 25px;
-    margin-top: 40px;
-    font-size: 16px;
-    text-align: center;
+/* Make Graph Line Bolder */
+.chartjs-render-monitor {
+    stroke-width: 3px !important; /* Makes the graph line bolder */
 }
 
-footer a {
-    color: #FFD300;
-    text-decoration: none;
-    font-weight: bold;
+/* Reduce White Background Around Graph */
+canvas {
+    background: transparent !important;
 }
 
-footer a:hover {
-    text-decoration: underline;
+/* Reposition Graph to Half-Page Width with FAQ on the Right */
+@media (min-width: 1024px) {
+    #content-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    
+    #chart-container {
+        width: 55%; /* Graph takes up half the screen */
+        margin-right: 20px;
+    }
+    
+    #faq {
+        width: 40%;
+    }
+}
+
+/* Ensure Responsive Design */
+@media (max-width: 768px) {
+    #chart-container, #faq {
+        width: 90%;
+        margin: auto;
+    }
 }
