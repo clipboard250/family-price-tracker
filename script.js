@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         const period = `${year}-${quarter}`;
-        const price = priceData[period]?.[state.replace("_", " ")]; // Match state names
+        const price = priceData[period]?.[state === "US_Average" ? "US_Average" : state.replace("_", " ")];
 
         if (price) {
             priceOutput.innerHTML = `Price for ${state.replace("_", " ")} in ${year}-${quarter}: $${price} per dozen.`;
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to update the graph
     function updateGraph(selectedState) {
         const labels = Object.keys(priceData); // e.g., ["2016-Q1", "2016-Q2", ...]
-        const prices = labels.map(period => priceData[period][selectedState.replace("_", " ")] || 0);
+        const prices = labels.map(period => priceData[period][selectedState === "US_Average" ? "US_Average" : selectedState.replace("_", " ")] || 0);
 
         eggChart.data.labels = labels;
         eggChart.data.datasets[0].data = prices;
