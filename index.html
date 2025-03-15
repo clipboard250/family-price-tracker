@@ -34,33 +34,68 @@
         <canvas id="eggPriceChart"></canvas>
     </section>
 
-    <p style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
-        📊 The graph shows **all historical prices (2016–2025)**. Some past quarters had extreme price spikes due to market changes.
+    <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
+        📊 Select a location to reveal the graph.
     </p>
 
     <section id="faq">
         <h2>FAQ - Understanding Egg Prices</h2>
         <details>
             <summary>Why do egg prices fluctuate so much?</summary>
-            <p>Egg prices change due to supply chain issues, inflation, avian flu outbreaks, and seasonal demand (e.g., Easter, holidays).</p>
+            <p>Egg prices change due to <strong>supply chain issues, inflation, avian flu outbreaks, and seasonal demand</strong> (e.g., Easter, holidays).</p>
+            <p>🔹 <strong>Supply Chain Issues</strong> – Fuel, labor shortages, & transportation costs impact availability.</p>
+            <p>🔹 <strong>Inflation & Consumer Demand</strong> – Prices rise when feed & fuel costs increase.</p>
+            <p>🔹 <strong>Avian Flu Outbreaks</strong> – Millions of hens were killed in 2015 & 2022, driving up prices.</p>
+            <p>🔹 <strong>Local Laws & Regulations</strong> – Example: California’s cage-free mandates.</p>
+            <p>🔹 <strong>Grocery Store Markup Policies</strong> – Pricing varies across states & retailers.</p>
+            <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a> | <a href="https://www.bls.gov/cpi/" target="_blank">BLS Inflation Tracker</a></p>
         </details>
         <details>
             <summary>Where does this data come from?</summary>
             <p>Data is sourced from the U.S. Bureau of Labor Statistics (BLS) and USDA reports. We use verified, official sources.</p>
+            <p><strong>🔗 Sources:</strong> <a href="https://www.bls.gov/cpi/" target="_blank">BLS Official Website</a> | <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns/" target="_blank">USDA ERS Egg Prices</a></p>
         </details>
         <details>
             <summary>Why did eggs cost $9+ in some places but not others?</summary>
             <p>Local laws (e.g., cage-free mandates), regional shortages, and store markup policies affect pricing.</p>
+            <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a></p>
         </details>
         <details>
             <summary>Will egg prices go down in 2025?</summary>
             <p>USDA predicts a drop, but it depends on flock recovery and economic conditions.</p>
+            <p>🔹 USDA predicts egg prices may decline if flock recovery stabilizes.</p>
+            <p>🔹 Feed costs & fuel prices will impact production costs—global economic factors matter.</p>
+            <p>🔹 Cage-free laws & sustainability mandates may keep prices higher long-term.</p>
+            <p>🔹 Consumer demand spikes (holidays, inflation trends) could still lead to temporary price surges.</p>
+            <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Egg Market Reports</a> | <a href="https://fred.stlouisfed.org/" target="_blank">Federal Reserve Inflation Reports</a></p>
         </details>
     </section>
-    
+
+    <section id="submit-prices">
+        <h2>📬 Tell Us Your Egg Prices!</h2>
+        <p>Help us keep our egg prices super accurate—share what you see at your store!</p>
+        <form>
+            <label for="city-state">City & State:</label><br>
+            <input type="text" id="city-state" name="city-state" placeholder="e.g., Miami, FL"><br><br>
+
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date"><br><br>
+
+            <label for="price">Egg Price (per dozen):</label><br>
+            <input type="number" id="price" name="price" step="0.01" placeholder="e.g., 3.99"><br><br>
+
+            <label for="receipt">Upload Receipt or Picture (optional):</label><br>
+            <input type="file" id="receipt" name="receipt"><br><br>
+
+            <button type="submit">Send It!</button>
+        </form>
+    </section>
+
     <footer>
-        <p>Built by a copywriting strategist who cracked open coding—with a little help from engineer friends, coffee, and an unhealthy fascination with egg prices. 
-        | <a href="https://gofercontent.com" target="_blank">Gofer Content</a> | <a href="https://buymeacoffee.com/gofercontent" target="_blank" class="coffee-button">Buy me a coffee ☕️</a></p>
+        <p>Built by a copywriting strategist who cracked open coding—with a little help from engineer friends, coffee, and an unhealthy fascination with egg prices. | <a href="https://gofercontent.com" target="_blank">Gofer Content</a> | <a href="https://buymeacoffee.com/gofercontent" target="_blank" class="coffee-button">Buy me a coffee ☕️</a></p>
+        <p><em>Prices are based on historical & user-submitted data. Actual prices may vary.</em></p>
+        <p><em>This tool is for informational purposes only. Prices fluctuate based on market conditions.</em></p>
+        <p><em>Submitted data may be stored for tracking purposes but will not be shared externally.</em></p>
     </footer>
 
     <script src="script.js"></script>
