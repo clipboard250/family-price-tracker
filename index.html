@@ -13,21 +13,27 @@
     </header>
     
     <section id="controls">
-        <label for="year">Select Year:</label>
-        <select id="year"></select>
+        <div class="select-wrapper">
+            <label for="year">Select year:</label>
+            <select id="year"></select>
+        </div>
 
-        <label for="quarter">Select Quarter:</label>
-        <select id="quarter"></select>
+        <div class="select-wrapper">
+            <label for="quarter">Select quarter:</label>
+            <select id="quarter"></select>
+        </div>
 
-        <label for="state">Select State:</label>
-        <select id="state"></select>
+        <div class="select-wrapper">
+            <label for="state">Select state:</label>
+            <select id="state"></select>
+        </div>
 
-        <button onclick="fetchEggPrice()">Get Data</button>
+        <button onclick="fetchEggPrice()">Get data</button>
     </section>
 
     <div id="content-container">
         <section id="faq">
-            <h2>FAQ - Understanding Egg Prices</h2>
+            <h2>FAQ - Understanding egg prices</h2>
             <details>
                 <summary>Why do egg prices fluctuate so much?</summary>
                 <p>Egg prices change due to <strong>supply chain issues, inflation, avian flu outbreaks, and seasonal demand</strong> (e.g., Easter, holidays).</p>
@@ -61,7 +67,7 @@
 
         <div id="results-container">
             <section id="price-display">
-                <h2>Price Data</h2>
+                <h2>Price data</h2>
                 <p id="price-output">Select year, quarter, date, and state to see prices.</p>
             </section>
 
@@ -70,28 +76,28 @@
             </section>
 
             <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
-                📊 Select year, quarter, and state, the "Get Data" to reveal the graph.
+                📊 Select year, quarter, and state, the "Get data" to reveal the graph.
             </p>
         </div>
     </div>
 
     <section id="submit-prices">
-        <h2>📬 Tell Us Your Egg Prices!</h2>
+        <h2>📬 Tell us your egg prices!</h2>
         <p>Help us keep our egg prices super accurate—share what you see at your store!</p>
-        <form>
-            <label for="city-state">City & State:</label><br>
+        <form id="egg-price-form">
+            <label for="city-state">City & state:</label><br>
             <input type="text" id="city-state" name="city-state" placeholder="e.g., Eggville, Yolklahoma"><br><br>
 
-            <label for="date">Date You Grabbed Those Eggs:</label><br>
+            <label for="date">Date you grabbed those eggs:</label><br>
             <input type="date" id="date" name="date" placeholder="e.g., 03/16/2025"><br><br>
 
-            <label for="price">Price You Paid (per dozen):</label><br>
+            <label for="price">Price you paid (per dozen):</label><br>
             <input type="number" id="price" name="price" step="0.01" placeholder="e.g., 3.99"><br><br>
 
-            <label for="receipt">Upload Your Receipt or Egg Snap (optional):</label><br>
+            <label for="receipt">Upload your receipt or egg 📷 (optional):</label><br>
             <input type="file" id="receipt" name="receipt"><br><br>
 
-            <button type="submit">Send It! 🚀</button>
+            <button type="submit">Send it! 🚀</button>
         </form>
         <div class="disclaimer">
             <p><em>Prices are based on historical & user-submitted data. Actual prices may vary.</em></p>

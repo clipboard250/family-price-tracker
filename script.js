@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         data: {
             labels: [], // Will be filled with periods (e.g., 2016-Q1)
             datasets: [{
-                label: "Egg Price ($ per dozen)",
+                label: "Egg price ($ per dozen)",
                 data: [], // Will be filled with prices
                 borderColor: "#E5A663",
                 borderWidth: 3,
@@ -133,12 +133,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const price = priceData[period]?.[state === "US_Average" ? "US_Average" : state.replace("_", " ")];
 
         if (price) {
-            priceOutput.innerHTML = `Egg Prices for ${state.replace("_", " ")}, ${quarter}-${year}: $${price} per dozen.`;
+            priceOutput.innerHTML = `Egg prices for ${state.replace("_", " ")}, ${quarter}-${year}: $${price} per dozen.`;
             graphFootnote.innerHTML = "📈 The graph shows all historical prices (2016–2025). Some past quarters had extreme price spikes due to market changes.";
             updateGraph(state);
         } else {
             priceOutput.innerHTML = "Data unavailable for selected period.";
-            graphFootnote.innerHTML = '📊 Select year, quarter, and state, the "Get Data" to reveal the graph.';
+            graphFootnote.innerHTML = '📊 Select year, quarter, and state, the "Get data" to reveal the graph.';
         }
 
         // Remove loading class

@@ -171,15 +171,18 @@ canvas {
 /* Ensure Responsive Design with Graph Above FAQ on Mobile */
 @media (max-width: 768px) {
     #content-container {
-        flex-direction: column-reverse; /* Moves results (graph) above FAQ */
+        display: flex;
+        flex-direction: column;
     }
 
     #results-container {
+        order: -1; /* Ensures graph results appear first */
         width: 90%;
         margin: auto;
     }
 
     #faq {
+        order: 0; /* Ensures FAQ appears after graph */
         width: 90%;
         margin: 20px auto;
     }
@@ -205,11 +208,16 @@ canvas {
     }
 }
 
-/* Optional Simplification: Reduce Clutter on Mobile Graph */
+/* Simplify Mobile Graph: Increase Spacing and Reduce Data Points */
 @media (max-width: 768px) {
     #chart-container canvas {
         max-height: 200px; /* Reduces graph height on mobile */
-        overflow: hidden; /* Hides excess data points if needed */
+        overflow: hidden; /* Hides excess data points */
+    }
+
+    /* Increase spacing between data points by reducing the number of labels */
+    .chartjs-render-monitor {
+        font-size: 10px; /* Smaller font for labels */
     }
 }
 
