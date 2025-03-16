@@ -25,19 +25,6 @@
         <button onclick="fetchEggPrice()">Get Data</button>
     </section>
 
-    <section id="price-display">
-        <h2>Price Data</h2>
-        <p id="price-output">Select a date and state to see prices.</p>
-    </section>
-
-    <section id="chart-container">
-        <canvas id="eggPriceChart"></canvas>
-    </section>
-
-    <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
-        📊 Select a location to reveal the graph.
-    </p>
-
     <section id="faq">
         <h2>FAQ - Understanding Egg Prices</h2>
         <details>
@@ -70,6 +57,19 @@
             <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Egg Market Reports</a> | <a href="https://fred.stlouisfed.org/" target="_blank">Federal Reserve Inflation Reports</a></p>
         </details>
     </section>
+
+    <section id="price-display">
+        <h2>Price Data</h2>
+        <p id="price-output">Select a date and state to see prices.</p>
+    </section>
+
+    <section id="chart-container">
+        <canvas id="eggPriceChart"></canvas>
+    </section>
+
+    <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
+        📊 Select year, quarter, and state, the "Get Data" to reveal the graph.
+    </p>
 
     <section id="submit-prices">
         <h2>📬 Tell Us Your Egg Prices!</h2>
