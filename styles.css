@@ -5,7 +5,7 @@ body {
     font-family: 'Montserrat', sans-serif !important;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #FFF8E7, #F5E0B5); /* Subtle gradient for the body */
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051); /* Brighter gradient inspired by Pantone Yolk Yellow */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,10 +16,17 @@ p, button, select, details, summary {
     font-family: 'Montserrat', sans-serif !important;
 }
 
-/* Center the Title */
+/* Style the Banner */
+header {
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
 header h1 {
     text-align: center;
-    margin: 20px 0;
+    margin: 0;
     font-size: 2.5em;
     color: #333;
 }
@@ -28,7 +35,7 @@ header h1 {
 #controls {
     text-align: center;
     margin: 20px 0;
-    background: linear-gradient(to bottom, #FFF8E7, #F5E0B5);
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -98,7 +105,7 @@ select:hover {
 
 /* Restore Graph Layout & Background */
 #chart-container {
-    background: linear-gradient(to bottom, #FFF8E7, #E5A663);
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
@@ -146,7 +153,7 @@ canvas {
     #faq {
         width: 40%;
         margin-right: 20px;
-        background: linear-gradient(to bottom, #FFF8E7, #F5E0B5);
+        background: linear-gradient(to bottom, #F8ECD4, #E2B051);
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -163,7 +170,22 @@ canvas {
 
 /* Ensure Responsive Design */
 @media (max-width: 768px) {
-    #chart-container, #faq {
+    #content-container {
+        flex-direction: column;
+    }
+
+    #results-container {
+        order: -1; /* Move graph results above FAQ on mobile */
+        width: 90%;
+        margin: auto;
+    }
+
+    #faq {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #chart-container {
         width: 90%;
         margin: auto;
     }
@@ -196,7 +218,7 @@ canvas {
 }
 
 details {
-    background-color: #fff;
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
@@ -219,13 +241,14 @@ summary {
 }
 
 summary::after {
-    content: "▶";
-    font-size: 14px;
+    content: "+";
+    font-size: 18px;
+    font-weight: bold;
     transition: transform 0.3s ease;
 }
 
 details[open] summary::after {
-    content: "▼";
+    content: "−";
 }
 
 details p {
@@ -236,7 +259,7 @@ details p {
 
 /* Style the Form Section */
 #submit-prices {
-    background: linear-gradient(to bottom, #FFF8E7, #F5E0B5);
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
@@ -298,7 +321,7 @@ details p {
 footer {
     text-align: center;
     padding: 20px;
-    background: #F5E0B5;
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
     margin-top: 20px;
 }
 
@@ -309,34 +332,34 @@ footer p {
 /* Ensure Readability in Dark Mode */
 @media (prefers-color-scheme: dark) {
     body {
-        background: linear-gradient(to bottom, #4A2C00, #6B4E00);
-        color: #FFF8E7;
+        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
+        color: #333;
     }
 
     #controls, #faq, #submit-prices {
-        background: linear-gradient(to bottom, #6B4E00, #4A2C00);
-        color: #FFF8E7;
+        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
+        color: #333;
     }
 
     #chart-container {
-        background: linear-gradient(to bottom, #6B4E00, #E5A663);
+        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
     }
 
     select, #submit-prices input[type="text"],
     #submit-prices input[type="date"],
     #submit-prices input[type="number"] {
-        background-color: #6B4E00;
-        color: #FFF8E7;
+        background-color: #F8ECD4;
+        color: #333;
         border-color: #E5A663;
     }
 
     details {
-        background-color: #6B4E00;
-        color: #FFF8E7;
+        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
+        color: #333;
     }
 
     footer {
-        background: #4A2C00;
-        color: #FFF8E7;
+        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
+        color: #333;
     }
 }
