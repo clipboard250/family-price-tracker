@@ -116,11 +116,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const state = document.getElementById("state").value;
         const priceOutput = document.getElementById("price-output");
         const graphFootnote = document.getElementById("graph-footnote");
+        const chartContainer = document.getElementById("chart-container");
 
         if (!year || !quarter || !state) {
             priceOutput.innerHTML = "Please select a year, quarter, and state.";
             return;
         }
+
+        // Add loading class
+        chartContainer.classList.add("loading");
+
+        // Simulate a delay for loading animation (remove in production if data fetching is fast)
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
         const period = `${year}-${quarter}`;
         const price = priceData[period]?.[state === "US_Average" ? "US_Average" : state.replace("_", " ")];
@@ -133,6 +140,9 @@ document.addEventListener("DOMContentLoaded", function() {
             priceOutput.innerHTML = "Data unavailable for selected period.";
             graphFootnote.innerHTML = '📊 Select year, quarter, and state, the "Get Data" to reveal the graph.';
         }
+
+        // Remove loading class
+        chartContainer.classList.remove("loading");
     }
 
     // Function to update the graph

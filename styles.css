@@ -1,36 +1,69 @@
-/* Ensure Fonts Stay Archivo & Montserrat Globally */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Montserrat:wght@400;500;700&display=swap');
+/* Ensure Fonts Stay Archivo Black & Montserrat Globally */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;700&display=swap');
 
-body, h1, h2, h3, h4, h5, h6, p, button, select, details, summary {
-    font-family: 'Archivo', 'Montserrat', sans-serif !important;
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #FFF8E7, #F5E0B5); /* Subtle gradient for the body */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif !important;
+}
+
+p, button, select, details, summary {
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 /* Center the Title */
 header h1 {
     text-align: center;
     margin: 20px 0;
-    font-family: 'Archivo', sans-serif;
     font-size: 2.5em;
     color: #333;
 }
 
-/* Fix Dropdown Selection & Styling */
+/* Style the Search Tool */
+#controls {
+    text-align: center;
+    margin: 20px 0;
+    background: linear-gradient(to bottom, #FFF8E7, #F5E0B5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#controls label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
 select {
-    font-family: 'Archivo', sans-serif;
     font-size: 16px;
+    padding: 10px 30px 10px 10px;
+    border: 2px solid #E5A663;
+    border-radius: 5px;
+    background-color: #FFF8E7;
+    cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding: 10px;
-    border: 2px solid #CCC;
-    border-radius: 5px;
-    background-color: white;
-    cursor: pointer;
-    position: relative;
+    transition: border-color 0.3s ease;
+    margin: 5px;
 }
 
-/* Ensure Dropdown Arrows Display Properly */
-select::after {
+select:hover {
+    border-color: #D68C38;
+}
+
+/* Wrapper for custom arrow */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.select-wrapper::after {
     content: '▼';
     font-size: 14px;
     position: absolute;
@@ -38,6 +71,29 @@ select::after {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
+    color: #E5A663;
+}
+
+#controls button {
+    background-color: #E5A663;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 5px;
+}
+
+#controls button:hover {
+    background-color: #D68C38;
+    transform: scale(1.05);
+}
+
+#controls button:active {
+    transform: scale(0.95);
 }
 
 /* Restore Graph Layout & Background */
@@ -48,6 +104,24 @@ select::after {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     width: 100%;
     margin: 20px auto;
+    position: relative;
+}
+
+/* Loading Animation for Graph */
+#chart-container.loading::before {
+    content: '🍳 Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #E5A663;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Make Graph Line Bolder */
@@ -72,6 +146,10 @@ canvas {
     #faq {
         width: 40%;
         margin-right: 20px;
+        background: linear-gradient(to bottom, #FFF8E7, #F5E0B5);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     
     #results-container {
@@ -88,6 +166,21 @@ canvas {
     #chart-container, #faq {
         width: 90%;
         margin: auto;
+    }
+
+    #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .select-wrapper {
+        margin-bottom: 10px;
+    }
+
+    #controls button {
+        width: 100%;
+        max-width: 200px;
     }
 }
 
@@ -139,4 +232,111 @@ details p {
     margin-top: 10px;
     padding: 10px;
     line-height: 1.6;
+}
+
+/* Style the Form Section */
+#submit-prices {
+    background: linear-gradient(to bottom, #FFF8E7, #F5E0B5);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 85%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#submit-prices form {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit-prices label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#submit-prices input[type="text"],
+#submit-prices input[type="date"],
+#submit-prices input[type="number"],
+#submit-prices input[type="file"] {
+    padding: 10px;
+    border: 2px solid #E5A663;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#submit-prices button {
+    background-color: #E5A663;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#submit-prices button:hover {
+    background-color: #D68C38;
+    transform: scale(1.05);
+}
+
+#submit-prices button:active {
+    transform: scale(0.95);
+}
+
+/* Style the Disclaimer */
+.disclaimer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #F5E0B5;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Ensure Readability in Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(to bottom, #4A2C00, #6B4E00);
+        color: #FFF8E7;
+    }
+
+    #controls, #faq, #submit-prices {
+        background: linear-gradient(to bottom, #6B4E00, #4A2C00);
+        color: #FFF8E7;
+    }
+
+    #chart-container {
+        background: linear-gradient(to bottom, #6B4E00, #E5A663);
+    }
+
+    select, #submit-prices input[type="text"],
+    #submit-prices input[type="date"],
+    #submit-prices input[type="number"] {
+        background-color: #6B4E00;
+        color: #FFF8E7;
+        border-color: #E5A663;
+    }
+
+    details {
+        background-color: #6B4E00;
+        color: #FFF8E7;
+    }
+
+    footer {
+        background: #4A2C00;
+        color: #FFF8E7;
+    }
 }
