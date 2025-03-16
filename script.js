@@ -50,6 +50,20 @@ document.addEventListener("DOMContentLoaded", function() {
         options: {
             scales: {
                 y: { beginAtZero: true }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += '$' + context.parsed.y + ' per dozen';
+                            return label;
+                        }
+                    }
+                }
             }
         }
     });
@@ -112,12 +126,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const price = priceData[period]?.[state === "US_Average" ? "US_Average" : state.replace("_", " ")];
 
         if (price) {
-            priceOutput.innerHTML = `Price for ${state.replace("_", " ")} in ${year}-${quarter}: $${price} per dozen.`;
+            priceOutput.innerHTML = `Egg Prices for ${state.replace("_", " ")}, ${quarter}-${year}: $${price} per dozen.`;
             graphFootnote.innerHTML = "📈 The graph shows all historical prices (2016–2025). Some past quarters had extreme price spikes due to market changes.";
             updateGraph(state);
         } else {
             priceOutput.innerHTML = "Data unavailable for selected period.";
-            graphFootnote.innerHTML = "📊 Select a location to reveal the graph.";
+            graphFootnote.innerHTML = '📊 Select year, quarter, and state, the "Get Data" to reveal the graph.';
         }
     }
 
