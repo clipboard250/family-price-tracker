@@ -5,6 +5,15 @@ body, h1, h2, h3, h4, h5, h6, p, button, select, details, summary {
     font-family: 'Archivo', 'Montserrat', sans-serif !important;
 }
 
+/* Center the Title */
+header h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Archivo', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+}
+
 /* Fix Dropdown Selection & Styling */
 select {
     font-family: 'Archivo', sans-serif;
@@ -31,21 +40,13 @@ select::after {
     pointer-events: none;
 }
 
-/* Fix FAQ Positioning on Desktop */
-@media (min-width: 1024px) {
-    #faq {
-        position: relative;
-        top: -40px;
-    }
-}
-
 /* Restore Graph Layout & Background */
 #chart-container {
     background: linear-gradient(to bottom, #FFF8E7, #E5A663);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    width: 85%;
+    width: 100%;
     margin: 20px auto;
 }
 
@@ -59,7 +60,7 @@ canvas {
     background: transparent !important;
 }
 
-/* Reposition Graph to Half-Page Width with FAQ on the Right */
+/* Reposition FAQ on Left and Results on Right */
 @media (min-width: 1024px) {
     #content-container {
         display: flex;
@@ -68,13 +69,17 @@ canvas {
         padding: 20px;
     }
     
-    #chart-container {
-        width: 55%; /* Graph takes up half the screen */
+    #faq {
+        width: 40%;
         margin-right: 20px;
     }
     
-    #faq {
-        width: 40%;
+    #results-container {
+        width: 55%;
+    }
+    
+    #chart-container {
+        width: 100%;
     }
 }
 
@@ -85,7 +90,6 @@ canvas {
         margin: auto;
     }
 }
-
 
 /* Modern Card Style for FAQ */
 #faq {

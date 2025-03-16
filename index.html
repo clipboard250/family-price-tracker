@@ -25,51 +25,55 @@
         <button onclick="fetchEggPrice()">Get Data</button>
     </section>
 
-    <section id="faq">
-        <h2>FAQ - Understanding Egg Prices</h2>
-        <details>
-            <summary>Why do egg prices fluctuate so much?</summary>
-            <p>Egg prices change due to <strong>supply chain issues, inflation, avian flu outbreaks, and seasonal demand</strong> (e.g., Easter, holidays).</p>
-            <p>🔹 <strong>Supply Chain Issues</strong> – Fuel, labor shortages, & transportation costs impact availability.</p>
-            <p>🔹 <strong>Inflation & Consumer Demand</strong> – Prices rise when feed & fuel costs increase.</p>
-            <p>🔹 <strong>Avian Flu Outbreaks</strong> – Millions of hens were killed in 2015 & 2022, driving up prices.</p>
-            <p>🔹 <strong>Local Laws & Regulations</strong> – Example: California’s cage-free mandates.</p>
-            <p>🔹 <strong>Grocery Store Markup Policies</strong> – Pricing varies across states & retailers.</p>
-            <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a> | <a href="https://www.bls.gov/cpi/" target="_blank">BLS Inflation Tracker</a></p>
-        </details>
-        <details>
-            <summary>Where does this data come from?</summary>
-            <p>Data is sourced from the U.S. Bureau of Labor Statistics (BLS) and USDA reports. We use verified, official sources.</p>
-            <p><strong>🔗 Sources:</strong> <a href="https://www.bls.gov/cpi/" target="_blank">BLS Official Website</a> | <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns/" target="_blank">USDA ERS Egg Prices</a></p>
-        </details>
-        <details>
-            <summary>Why did eggs cost $9+ in some places but not others?</summary>
-            <p>Local laws (e.g., cage-free mandates), regional shortages, and store markup policies affect pricing.</p>
-            <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a></p>
-        </details>
-        <details>
-            <summary>Will egg prices go down in 2025?</summary>
-            <p>USDA predicts a drop, but it depends on flock recovery and economic conditions.</p>
-            <p>🔹 USDA predicts egg prices may decline if flock recovery stabilizes.</p>
-            <p>🔹 Feed costs & fuel prices will impact production costs—global economic factors matter.</p>
-            <p>🔹 Cage-free laws & sustainability mandates may keep prices higher long-term.</p>
-            <p>🔹 Consumer demand spikes (holidays, inflation trends) could still lead to temporary price surges.</p>
-            <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Egg Market Reports</a> | <a href="https://fred.stlouisfed.org/" target="_blank">Federal Reserve Inflation Reports</a></p>
-        </details>
-    </section>
+    <div id="content-container">
+        <section id="faq">
+            <h2>FAQ - Understanding Egg Prices</h2>
+            <details>
+                <summary>Why do egg prices fluctuate so much?</summary>
+                <p>Egg prices change due to <strong>supply chain issues, inflation, avian flu outbreaks, and seasonal demand</strong> (e.g., Easter, holidays).</p>
+                <p>🔹 <strong>Supply Chain Issues</strong> – Fuel, labor shortages, & transportation costs impact availability.</p>
+                <p>🔹 <strong>Inflation & Consumer Demand</strong> – Prices rise when feed & fuel costs increase.</p>
+                <p>🔹 <strong>Avian Flu Outbreaks</strong> – Millions of hens were killed in 2015 & 2022, driving up prices.</p>
+                <p>🔹 <strong>Local Laws & Regulations</strong> – Example: California’s cage-free mandates.</p>
+                <p>🔹 <strong>Grocery Store Markup Policies</strong> – Pricing varies across states & retailers.</p>
+                <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a> | <a href="https://www.bls.gov/cpi/" target="_blank">BLS Inflation Tracker</a></p>
+            </details>
+            <details>
+                <summary>Where does this data come from?</summary>
+                <p>Data is sourced from the U.S. Bureau of Labor Statistics (BLS) and USDA reports. We use verified, official sources.</p>
+                <p><strong>🔗 Sources:</strong> <a href="https://www.bls.gov/cpi/" target="_blank">BLS Official Website</a> | <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns/" target="_blank">USDA ERS Egg Prices</a></p>
+            </details>
+            <details>
+                <summary>Why did eggs cost $9+ in some places but not others?</summary>
+                <p>Local laws (e.g., cage-free mandates), regional shortages, and store markup policies affect pricing.</p>
+                <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a></p>
+            </details>
+            <details>
+                <summary>Will egg prices go down in 2025?</summary>
+                <p>USDA predicts a drop, but it depends on flock recovery and economic conditions.</p>
+                <p>🔹 USDA predicts egg prices may decline if flock recovery stabilizes.</p>
+                <p>🔹 Feed costs & fuel prices will impact production costs—global economic factors matter.</p>
+                <p>🔹 Cage-free laws & sustainability mandates may keep prices higher long-term.</p>
+                <p>🔹 Consumer demand spikes (holidays, inflation trends) could still lead to temporary price surges.</p>
+                <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Egg Market Reports</a> | <a href="https://fred.stlouisfed.org/" target="_blank">Federal Reserve Inflation Reports</a></p>
+            </details>
+        </section>
 
-    <section id="price-display">
-        <h2>Price Data</h2>
-        <p id="price-output">Select a date and state to see prices.</p>
-    </section>
+        <div id="results-container">
+            <section id="price-display">
+                <h2>Price Data</h2>
+                <p id="price-output">Select a date and state to see prices.</p>
+            </section>
 
-    <section id="chart-container">
-        <canvas id="eggPriceChart"></canvas>
-    </section>
+            <section id="chart-container">
+                <canvas id="eggPriceChart"></canvas>
+            </section>
 
-    <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
-        📊 Select year, quarter, and state, the "Get Data" to reveal the graph.
-    </p>
+            <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
+                📊 Select year, quarter, and state, the "Get Data" to reveal the graph.
+            </p>
+        </div>
+    </div>
 
     <section id="submit-prices">
         <h2>📬 Tell Us Your Egg Prices!</h2>
