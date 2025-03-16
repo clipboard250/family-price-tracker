@@ -1,12 +1,4 @@
 ---
-name: 'Egg Price Submission '
-about: Collect egg prices information
-title: ''
-labels: ''
-assignees: ''
-
----
-
 name: Egg Price Submission
 description: Submit egg prices you see at your store to help keep our tracker accurate.
 title: "[Egg Price Submission] "
