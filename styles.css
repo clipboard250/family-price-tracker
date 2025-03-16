@@ -168,14 +168,13 @@ canvas {
     }
 }
 
-/* Ensure Responsive Design */
+/* Ensure Responsive Design with Graph Above FAQ on Mobile */
 @media (max-width: 768px) {
     #content-container {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Moves results (graph) above FAQ */
     }
 
     #results-container {
-        order: -1; /* Move graph results above FAQ on mobile */
         width: 90%;
         margin: auto;
     }
@@ -203,6 +202,14 @@ canvas {
     #controls button {
         width: 100%;
         max-width: 200px;
+    }
+}
+
+/* Optional Simplification: Reduce Clutter on Mobile Graph */
+@media (max-width: 768px) {
+    #chart-container canvas {
+        max-height: 200px; /* Reduces graph height on mobile */
+        overflow: hidden; /* Hides excess data points if needed */
     }
 }
 
