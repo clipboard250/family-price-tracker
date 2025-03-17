@@ -143,6 +143,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Remove loading class
         chartContainer.classList.remove("loading");
+
+        // Add scroll behavior for mobile (screen width ≤ 768px)
+        if (window.innerWidth <= 768) {
+            const chartContainer = document.getElementById('chart-container');
+            if (chartContainer) {
+                chartContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     }
 
     // Function to update the graph
