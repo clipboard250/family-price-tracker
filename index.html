@@ -3,108 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egg Price Tracker</title>
+    <title>Family Price Pulse</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
-        <h1>Egg prices across the U.S. (from 2016 to now)</h1>
+        <h1>Family Price Pulse: Essential Items Across the U.S. (2016–2025)</h1>
     </header>
-    
     <section id="controls">
-        <div class="select-wrapper">
-            <label for="year">Select year:</label>
-            <select id="year"></select>
-        </div>
-
-        <div class="select-wrapper">
-            <label for="quarter">Select quarter:</label>
-            <select id="quarter"></select>
-        </div>
-
-        <div class="select-wrapper">
-            <label for="state">Select state:</label>
-            <select id="state"></select>
-        </div>
-
-        <button onclick="fetchEggPrice()">Get data</button>
+        <label for="item">Select item:</label>
+        <select id="item" name="item">
+            <option value="Eggs">Eggs</option>
+            <option value="Diapers">Diapers</option>
+        </select>
+        <label for="year">Select year:</label>
+        <select id="year" name="year"></select>
+        <label for="state">Select state:</label>
+        <select id="state" name="state"></select>
+        <button>Get data</button>
     </section>
-
-    <div id="content-container">
+    <section id="content-container">
         <section id="faq">
-            <h2>FAQ - Understanding egg prices</h2>
+            <h2>FAQ - Understanding Prices</h2>
             <details>
-                <summary>Why do egg prices fluctuate so much?</summary>
-                <p>Egg prices change due to <strong>supply chain issues, inflation, avian flu outbreaks, and seasonal demand</strong> (e.g., Easter, holidays).</p>
-                <p>🥚 <strong>Supply Chain Issues</strong> – Fuel, labor shortages, & transportation costs impact availability.</p>
-                <p>🥚 <strong>Inflation & Consumer Demand</strong> – Prices rise when feed & fuel costs increase.</p>
-                <p>🥚 <strong>Avian Flu Outbreaks</strong> – Millions of hens were killed in 2015 & 2022, driving up prices.</p>
-                <p>🥚 <strong>Local Laws & Regulations</strong> – Example: California’s cage-free mandates.</p>
-                <p>🥚 <strong>Grocery Store Markup Policies</strong> – Pricing varies across states & retailers.</p>
-                <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a> | <a href="https://www.bls.gov/cpi/" target="_blank">BLS Inflation Tracker</a></p>
+                <summary>Why do prices fluctuate so much?</summary>
+                <p>Supply chain issues, seasonal demand, inflation, and market disruptions (like avian flu for eggs) can cause prices to spike. Regulatory factors, like cage-free mandates, also play a role in regional price differences.</p>
             </details>
             <details>
                 <summary>Where does this data come from?</summary>
-                <p>Data is sourced from the U.S. Bureau of Labor Statistics (BLS) and USDA reports. We use verified, official sources.</p>
-                <p><strong>🔗 Sources:</strong> <a href="https://www.bls.gov/cpi/" target="_blank">BLS Official Website</a> | <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns/" target="_blank">USDA ERS Egg Prices</a></p>
+                <p>Data is sourced from official <a href="https://www.bls.gov/cpi/" target="_blank"><strong>U.S. Bureau of Labor Statistics (BLS)</strong></a>, <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns/" target="_blank"><strong>USDA Market Reports</strong></a>, and user submissions.</p>
             </details>
             <details>
-                <summary>Why did eggs cost $9+ in some places but not others?</summary>
-                <p>Local laws (e.g., cage-free mandates), regional shortages, and store markup policies affect pricing.</p>
-                <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Market Reports</a></p>
+                <summary>Why do prices differ so much by region?</summary>
+                <p>Local laws (e.g., cage-free mandates for eggs), regional shortages, and store markup policies affect pricing—<a href="https://www.ams.usda.gov/mnreports/" target="_blank"><strong>USDA Market Reports</strong></a>.</p>
             </details>
             <details>
-                <summary>Will egg prices go down in 2025?</summary>
-                <p>USDA predicts a drop, but it depends on flock recovery and economic conditions.</p>
-                <p>🥚 USDA predicts egg prices may decline if flock recovery stabilizes.</p>
-                <p>🥚 Feed costs & fuel prices will impact production costs—global economic factors matter.</p>
-                <p>🥚 Cage-free laws & sustainability mandates may keep prices higher long-term.</p>
-                <p>🥚 Consumer demand spikes (holidays, inflation trends) could still lead to temporary price surges.</p>
-                <p><strong>🔗 Sources:</strong> <a href="https://www.ams.usda.gov/mnreports" target="_blank">USDA Egg Market Reports</a> | <a href="https://fred.stlouisfed.org/" target="_blank">Federal Reserve Inflation Reports</a></p>
+                <summary>Will prices go down in 2025?</summary>
+                <p>USDA predicts a potential drop for some items, but it depends on supply recovery and economic conditions.</p>
+                <p>📉 <strong>USDA predicts prices may decline if supply recovery stabilizes.</strong></p>
+                <p>📈 <strong>Production costs (e.g., fuel, materials) will impact prices—global economic factors matter.</strong></p>
+                <p>📊 <strong>Regulatory mandates may keep prices higher long-term.</strong></p>
+                <p>📅 <strong>Consumer demand spikes (e.g., holidays, inflation trends) could lead to temporary price surges.</strong></p>
+                <p><strong>Sources:</strong> <a href="https://www.ams.usda.gov/mnreports/" target="_blank">USDA Market Reports</a> | <a href="https://fred.stlouisfed.org/" target="_blank">Federal Reserve Inflation Reports</a></p>
             </details>
         </section>
-
-        <div id="results-container">
-            <section id="price-display">
-                <h2>Price data</h2>
-                <p id="price-output">Select year, quarter, date, and state to see prices.</p>
-            </section>
-
+        <section id="results-container">
+            <h2 id="price-data">Price data</h2>
+            <p id="price-output">Select item, year, and state to see prices.</p>
             <section id="chart-container">
                 <canvas id="eggPriceChart"></canvas>
             </section>
-
-            <p id="graph-footnote" style="font-size: 14px; color: #666; text-align: center; margin-top: 10px;">
-                📊 Select year, quarter, and state, the "Get data" to reveal the graph.
-            </p>
-        </div>
-    </div>
-
+            <p id="graph-footnote">📊 Select item, year, and state, then "Get data" to reveal the graph.</p>
+        </section>
+    </section>
     <section id="submit-prices">
-         <section id="submit-prices">
-    <h2>📬 Tell us your egg prices!</h2>
-    <p>Help us keep our egg prices super accurate—share what you see at your store!</p>
-    <div class="button-container">
-        <a href="mailto:info@gofercontent.com?subject=Egg%20Price%20Submission&body=Hi%20Gofer%20Content%2C%0D%0A%0D%0AI%20want%20to%20share%20an%20egg%20price%20I%20found%3A%0D%0A-%20City%20%26%20State%3A%20%0D%0A-%20Date%3A%20%0D%0A-%20Price%20(per%20dozen)%3A%20%0D%0A-%20Optional%20Receipt%20or%20Photo%3A%20(please%20attach%20if%20available)%0D%0A%0D%0AThanks!">
-            <button class="submit-button email-button">Send a message</button>
-        </a>
-        <a href="https://github.com/clipboard250/egg-price-tracker/issues/new?template=egg-price-submission.yml" target="_blank">
-            <button class="submit-button github-button">Submit on GitHub</button>
-        </a>
-    </div>
-    <div class="disclaimer">
-        <p><strong>Disclaimer:</strong></p>
-        <p>This tool compiles egg price data from a mix of <strong>official sources</strong> (e.g., <strong>U.S. Bureau of Labor Statistics (BLS), USDA Market Reports</strong>) and <strong>user-submitted inputs</strong>. Prices fluctuate based on supply conditions, seasonal demand, inflation, and regulatory factors, so actual market prices may vary.</p>
-        <p>The data displayed here is for <strong>informational purposes only</strong> and does not constitute financial, investment, or purchasing advice. We strive for accuracy using <strong>verified sources</strong> (BLS, USDA) and community-reported insights.</p>
-        <p><strong>User-submitted price data will be stored and incorporated into the tracker</strong>, contributing to a broader understanding of real-time pricing trends. However, while we aggregate and publicly display user-contributed price data, we <strong>do not disclose any personally identifiable information (PII) from contributors</strong>.</p>
-    </div>
-</section>
-
+        <h2>📬 Tell us your prices!</h2>
+        <p>Help us keep our prices super accurate—share what you see at your store!</p>
+        <div class="button-container">
+            <a id="email-link" href="mailto:info@gofercontent.com?subject=Price%20Submission&body=Hi%20Gofer%20Content%2C%0D%0A%0D%0AI%20want%20to%20share%20a%20price%20I%20found%3A%0D%0A-%20Item%3A%20Eggs%0D%0A-%20City%20%26%20State%3A%20%0D%0A-%20Date%3A%20%0D%0A-%20Price%3A%20%0D%0A-%20Optional%20Receipt%20or%20Photo%3A%20(please%20attach%20if%20available)%0D%0A%0D%0AThanks!">
+                <button class="submit-button email-button">Send a message</button>
+            </a>
+            <a id="github-link" href="https://github.com/clipboard250/egg-price-tracker/issues/new?template=egg-price-submission.yml" target="_blank">
+                <button class="submit-button github-button">Submit on GitHub</button>
+            </a>
+        </div>
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong></p>
+            <p>This tool compiles price data from a mix of <strong>official sources</strong> (e.g., <strong>U.S. Bureau of Labor Statistics (BLS), USDA Market Reports</strong>) and <strong>user-submitted inputs</strong>. Prices fluctuate based on supply conditions, seasonal demand, inflation, and regulatory factors, so actual market prices may vary.</p>
+            <p>The data displayed here is for <strong>informational purposes only</strong> and does not constitute financial, investment, or purchasing advice. We strive for accuracy using <strong>verified sources</strong> (BLS, USDA) and community-reported insights.</p>
+            <p><strong>User-submitted price data will be stored and incorporated into the tracker</strong>, contributing to a broader understanding of real-time pricing trends. However, while we aggregate and publicly display user-contributed price data, we <strong>do not disclose any personally identifiable information (PII) from contributors</strong>.</p>
+        </div>
+    </section>
     <footer>
-        <p>Built by a copywriting strategist who taught herself to code—because she's interested in building data trackers and word games. | <a href="https://gofercontent.com" target="_blank">Gofer Content</a> | <a href="https://buymeacoffee.com/gofercontent" target="_blank" class="coffee-button">Buy me a coffee ☕️</a></p>
+        <p>Built by a copywriting strategist who taught herself to code—because she’s interested in building data trackers and word games. | <a href="https://gofercontent.com/" target="_blank">Gofer Content</a> | <a href="https://buymeacoffee.com/gofercontent" target="_blank">Buy me a coffee ☕</a></p>
     </footer>
-
     <script src="script.js"></script>
+<!-- Force rebuild -->
 </body>
 </html>
