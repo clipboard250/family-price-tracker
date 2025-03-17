@@ -136,7 +136,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let unit = item === "Eggs" ? "per dozen" : "per pack";
 
         if (item === "Eggs") {
-            price = eggPriceData[year]?.[state === "US_Average" ? "US_Average" : state.replace("_", " ")];
+            const stateKey = state === "US Average" ? "US_Average" : state.replace(" ", "_");
+price = eggPriceData[year]?.[stateKey];
         } else if (item === "Diapers") {
             price = diaperPriceData[year];
         }
