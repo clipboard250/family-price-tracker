@@ -5,7 +5,7 @@ body {
     font-family: 'Montserrat', sans-serif !important;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051); /* Brighter gradient inspired by Pantone Yolk Yellow */
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -18,7 +18,7 @@ p, button, select, details, summary {
 
 /* Style the Banner */
 header {
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -35,7 +35,7 @@ header h1 {
 #controls {
     text-align: center;
     margin: 20px 0;
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -49,9 +49,9 @@ header h1 {
 select {
     font-size: 16px;
     padding: 10px 30px 10px 10px;
-    border: 2px solid #E5A663;
+    border: 2px solid #F4B266; /* Updated accent color */
     border-radius: 5px;
-    background-color: #FFF8E7;
+    background-color: #FFF9E6; /* Updated background color */
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
@@ -61,7 +61,7 @@ select {
 }
 
 select:hover {
-    border-color: #D68C38;
+    border-color: #E89F4F; /* Updated hover color */
 }
 
 /* Wrapper for custom arrow */
@@ -78,11 +78,11 @@ select:hover {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: #E5A663;
+    color: #F4B266; /* Updated arrow color */
 }
 
 #controls button {
-    background-color: #E5A663;
+    background-color: #F4B266; /* Updated button color */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -95,7 +95,7 @@ select:hover {
 }
 
 #controls button:hover {
-    background-color: #D68C38;
+    background-color: #E89F4F; /* Updated hover color */
     transform: scale(1.05);
 }
 
@@ -105,7 +105,7 @@ select:hover {
 
 /* Restore Graph Layout & Background */
 #chart-container {
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
@@ -122,7 +122,7 @@ select:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
-    color: #E5A663;
+    color: #F4B266; /* Updated loading text color */
     animation: spin 1s linear infinite;
 }
 
@@ -153,7 +153,7 @@ canvas {
     
     #faq {
         width: 48%;
-        background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+        background: linear-gradient(to bottom, #FFF9E6, #FFD966);
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -162,11 +162,6 @@ canvas {
     #results-container {
         width: 48%;
     }
-    
-    #chart-container {
-        width: 100%;
-    }
-}
     
     #chart-container {
         width: 100%;
@@ -250,7 +245,7 @@ canvas {
 }
 
 details {
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
@@ -291,7 +286,7 @@ details p {
 
 /* Style the Submit Prices Section */
 #submit-prices {
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
@@ -321,19 +316,21 @@ details p {
 }
 
 .email-button {
-    background: linear-gradient(90deg, #f4a261, #e76f51);
+    background: linear-gradient(90deg, #FFF9E6, #FFD966); /* Updated gradient */
+    color: #333; /* Darker text for contrast */
 }
 
 .email-button:hover {
-    background: linear-gradient(90deg, #e76f51, #f4a261);
+    background: linear-gradient(90deg, #FFD966, #FFF9E6); /* Updated hover gradient */
 }
 
 .github-button {
-    background: linear-gradient(90deg, #6b705c, #3a5a40);
+    background: linear-gradient(90deg, #A3BFFA, #7F9CF5); /* Updated gradient */
+    color: #333; /* Darker text for contrast */
 }
 
 .github-button:hover {
-    background: linear-gradient(90deg, #3a5a40, #6b705c);
+    background: linear-gradient(90deg, #7F9CF5, #A3BFFA); /* Updated hover gradient */
 }
 
 /* Style the Disclaimer */
@@ -341,12 +338,12 @@ details p {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
-    color: #333; /* Darker color for better readability */
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051); /* Matching gradient */
+    color: #333;
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px; /* Limit the width to prevent it from stretching too wide */
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -355,7 +352,7 @@ details p {
 footer {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(to bottom, #F8ECD4, #E2B051);
+    background: linear-gradient(to bottom, #FFF9E6, #FFD966);
     margin-top: 20px;
 }
 
@@ -366,32 +363,32 @@ footer p {
 /* Ensure Readability in Dark Mode */
 @media (prefers-color-scheme: dark) {
     body {
-        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
-        color: #333;
+        background: linear-gradient(to bottom, #333, #555);
+        color: #F5F5F5;
     }
 
     #controls, #faq, #submit-prices {
-        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
-        color: #333;
+        background: linear-gradient(to bottom, #444, #666);
+        color: #F5F5F5;
     }
 
     #chart-container {
-        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
+        background: linear-gradient(to bottom, #444, #666);
     }
 
     select {
-        background-color: #F8ECD4;
-        color: #333;
-        border-color: #E5A663;
+        background-color: #555;
+        color: #F5F5F5;
+        border-color: #F4B266; /* Updated border color */
     }
 
     details {
-        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
-        color: #333;
+        background: linear-gradient(to bottom, #444, #666);
+        color: #F5F5F5;
     }
 
     footer {
-        background: linear-gradient(to bottom, #E2B051, #F8ECD4);
-        color: #333;
+        background: linear-gradient(to bottom, #444, #666);
+        color: #F5F5F5;
     }
 }
