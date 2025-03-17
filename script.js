@@ -176,7 +176,22 @@ price = eggPriceData[year]?.[stateKey];
             }
         }
     }
+// Function to update the graph
+function updateGraph(item, state) {
+    const labels = Object.keys(item === "Eggs" ? eggPriceData : diaperPriceData);
+    const prices = labels.map(year => {
+        if (item === "Eggs") {
+            const stateKey = state === "US Average" ? "US_Average" : state.replace(" ", "_");
+            return eggPriceData[year][stateKey] || 0;
+        } else {
+            return diaperPriceData[year] || 0;
+        }
+    });
 
+    priceChart.data.labels = labels;
+    priceChart.data.datasets[0].data = prices;
+    priceChart.update();
+}
     // Add event listener to the button
     const button = document.querySelector("button");
     if (button) {
