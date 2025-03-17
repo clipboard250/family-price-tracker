@@ -42,14 +42,28 @@ document.addEventListener("DOMContentLoaded", function() {
             datasets: [{
                 label: "Egg price ($ per dozen)",
                 data: [], // Will be filled with prices
-                borderColor: "#E5A663",
+                borderColor: "#FFD966", // Updated to match new palette
                 borderWidth: 3,
                 fill: false
             }]
         },
         options: {
             scales: {
-                y: { beginAtZero: true }
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: function(context) {
+                            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? '#F5F5F5' : '#333';
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: function(context) {
+                            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? '#F5F5F5' : '#333';
+                        }
+                    }
+                }
             },
             plugins: {
                 tooltip: {
