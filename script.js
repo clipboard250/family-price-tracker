@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const priceOutput = document.getElementById("price-output");
         const graphFootnote = document.getElementById("graph-footnote");
         const chartContainer = document.getElementById("chart-container");
+        const resultsContainer = document.getElementById("results-container"); // Added to target the price data section
 
         if (!year || !quarter || !state) {
             priceOutput.innerHTML = "Please select a year, quarter, and state.";
@@ -144,11 +145,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Remove loading class
         chartContainer.classList.remove("loading");
 
-        // Add scroll behavior for mobile (screen width ≤ 768px)
+        // Add scroll behavior for mobile (screen width ≤ 768px) to land on price data
         if (window.innerWidth <= 768) {
-            const chartContainer = document.getElementById('chart-container');
-            if (chartContainer) {
-                chartContainer.scrollIntoView({ behavior: 'smooth' });
+            if (resultsContainer) {
+                resultsContainer.scrollIntoView({ behavior: 'smooth' });
             }
         }
     }
