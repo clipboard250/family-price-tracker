@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 priceOutput.innerHTML = `${item} prices for ${year}: \$${price} ${unit}.`;
             }
-            graphFootnote.innerHTML = "📈 The graph shows all historical prices (2016–2025). Some years had extreme price spikes due to market changes.";
+            graphFootnote.innerHTML = `${item === "Eggs" ? "📈" : "👶"} The graph shows all historical prices (2016–2025). Some years had extreme price spikes due to market changes.`;
             updateGraph(item, state);
 
             // Update submission links with the selected item
@@ -174,24 +174,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 resultsContainer.scrollIntoView({ behavior: 'smooth' });
             }
         }
-    }
-
-    // Function to update the graph
-    function updateGraph(item, state) {
-        let labels, prices;
-
-        if (item === "Eggs") {
-            labels = Object.keys(eggPriceData);
-            prices = labels.map(year => eggPriceData[year][state === "US_Average" ? "US_Average" : state.replace("_", " ")] || 0);
-        } else if (item === "Diapers") {
-            labels = Object.keys(diaperPriceData);
-            prices = labels.map(year => diaperPriceData[year] || 0);
-        }
-
-        priceChart.data.labels = labels;
-        priceChart.data.datasets[0].label = `${item} price ($ ${item === "Eggs" ? "per dozen" : "per pack"})`;
-        priceChart.data.datasets[0].data = prices;
-        priceChart.update();
     }
 
     // Add event listener to the button
