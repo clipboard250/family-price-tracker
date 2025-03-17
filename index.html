@@ -82,28 +82,21 @@
     </div>
 
     <section id="submit-prices">
-        <h2>📬 Tell us your egg prices!</h2>
-        <p>Help us keep our egg prices super accurate—share what you see at your store!</p>
-        <form id="egg-price-form">
-            <label for="city-state">City & state:</label><br>
-            <input type="text" id="city-state" name="city-state" placeholder="e.g., Eggville, Yolklahoma"><br><br>
-
-            <label for="date">Date you grabbed those eggs:</label><br>
-            <input type="date" id="date" name="date" placeholder="e.g., 03/16/2025"><br><br>
-
-            <label for="price">Price you paid (per dozen):</label><br>
-            <input type="number" id="price" name="price" step="0.01" placeholder="e.g., 3.99"><br><br>
-
-            <label for="receipt">Upload your receipt or egg 📷 (optional):</label><br>
-            <input type="file" id="receipt" name="receipt"><br><br>
-
-            <button type="submit">Send it! 🚀</button>
-        </form>
-        <div class="disclaimer">
-            <p><em>Prices are based on historical & user-submitted data. Actual prices may vary.</em></p>
-            <p><em>This tool is for informational purposes only. Prices fluctuate based on market conditions.</em></p>
-            <p><em>Submitted data may be stored for tracking purposes but will not be shared externally.</em></p>
-        </div>
+           <h2>📬 Tell us your egg prices!</h2>
+    <p>Help us keep our egg prices super accurate—share what you see at your store!</p>
+    <div class="button-container">
+        <a href="mailto:info@gofercontent.com?subject=Egg%20Price%20Submission&body=Hi%20Gofer%20Content%2C%0D%0A%0D%0AI%20want%20to%20share%20an%20egg%20price%20I%20found%3A%0D%0A-%20City%20%26%20State%3A%20%0D%0A-%20Date%3A%20%0D%0A-%20Price%20(per%20dozen)%3A%20%0D%0A-%20Optional%20Receipt%20or%20Photo%3A%20(please%20attach%20if%20available)%0D%0A%0D%0AThanks!">
+            <button class="submit-button email-button">Email Us</button>
+        </a>
+        <a href="https://github.com/clipboard250/egg-price-tracker/issues/new?template=egg-price-submission.yml" target="_blank">
+            <button class="submit-button github-button">Submit on GitHub</button>
+        </a>
+    </div>
+    <div class="disclaimer">
+        <p><em>Prices are based on historical & user-submitted data. Actual prices may vary.</em></p>
+        <p><em>This tool is for informational purposes only. Prices fluctuate based on market conditions.</em></p>
+        <p><em>Submitted data may be stored for tracking purposes but will not be shared externally.</em></p>
+    </div>
     </section>
 
     <footer>

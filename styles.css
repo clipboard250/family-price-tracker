@@ -272,7 +272,7 @@ details p {
     line-height: 1.6;
 }
 
-/* Style the Form Section */
+/* Style the Submit Prices Section */
 #submit-prices {
     background: linear-gradient(to bottom, #F8ECD4, #E2B051);
     border-radius: 10px;
@@ -280,48 +280,43 @@ details p {
     margin: 20px auto;
     width: 85%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-#submit-prices form {
+/* Style the Buttons */
+.button-container {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-#submit-prices label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-#submit-prices input[type="text"],
-#submit-prices input[type="date"],
-#submit-prices input[type="number"],
-#submit-prices input[type="file"] {
-    padding: 10px;
-    border: 2px solid #E5A663;
-    border-radius: 5px;
-    margin-bottom: 15px;
+.submit-button {
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-}
-
-#submit-prices button {
-    background-color: #E5A663;
-    color: white;
-    padding: 10px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: white;
 }
 
-#submit-prices button:hover {
-    background-color: #D68C38;
-    transform: scale(1.05);
+.email-button {
+    background: linear-gradient(90deg, #f4a261, #e76f51);
 }
 
-#submit-prices button:active {
-    transform: scale(0.95);
+.email-button:hover {
+    background: linear-gradient(90deg, #e76f51, #f4a261);
+}
+
+.github-button {
+    background: linear-gradient(90deg, #6b705c, #3a5a40);
+}
+
+.github-button:hover {
+    background: linear-gradient(90deg, #3a5a40, #6b705c);
 }
 
 /* Style the Disclaimer */
@@ -360,9 +355,7 @@ footer p {
         background: linear-gradient(to bottom, #E2B051, #F8ECD4);
     }
 
-    select, #submit-prices input[type="text"],
-    #submit-prices input[type="date"],
-    #submit-prices input[type="number"] {
+    select {
         background-color: #F8ECD4;
         color: #333;
         border-color: #E5A663;
