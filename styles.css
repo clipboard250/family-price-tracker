@@ -324,9 +324,15 @@ details p {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
-    color: #666;
+    color: #333; /* Darker color for better readability */
+    background: linear-gradient(to bottom, #F8ECD4, #E2B051); /* Matching gradient */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Limit the width to prevent it from stretching too wide */
+    margin-left: auto;
+    margin-right: auto;
 }
-
 /* Footer Styling */
 footer {
     text-align: center;
