@@ -148,7 +148,7 @@ price = eggPriceData[year]?.[stateKey];
             } else {
                 priceOutput.innerHTML = `${item} prices for ${year}: \$${price} ${unit}.`;
             }
-            graphFootnote.innerHTML = `${item === "Eggs" ? "📈" : "👶"} The graph shows all historical prices (2016–2025). Some years had extreme price spikes due to market changes.`;
+            graphFootnote.innerHTML = `${item === "Eggs" ? "📈" : "📈"} The graph shows all historical prices (2016–2025). Some years had extreme price spikes due to market changes.`;
             updateGraph(item, state);
 
             // Update submission links with the selected item
