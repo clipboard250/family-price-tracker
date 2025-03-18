@@ -396,3 +396,11 @@ footer p {
         color: #F5F5F5;
     }
 }
+/* Ensure Chart.js legend text fits and is visible */
+.chartjs-legend {
+    font-size: 14px !important;
+    padding: 10px !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+}
