@@ -416,6 +416,6 @@ footer p {
 
 @media (prefers-color-scheme: dark) {
     .chartjs-legend {
-        color: #F5F5F5 !important; /* Visible color for dark mode */
-    }
+    color: #FFD966 !important; /* Brighter yellow to stand out in dark mode */
+}
 }
