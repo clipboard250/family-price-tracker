@@ -189,6 +189,7 @@ function updateGraph(item, state) {
     });
 
     priceChart.data.labels = labels;
+priceChart.data.datasets[0].label = `${item} price ($ ${item === "Eggs" ? "per dozen" : "per pack"})`;
     priceChart.data.datasets[0].data = prices;
     priceChart.update();
 }
