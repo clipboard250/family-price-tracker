@@ -396,9 +396,9 @@ footer p {
         color: #F5F5F5;
     }
 
-    .chartjs-legend {
-        color: #FFEB3B !important; /* Brighter yellow for better contrast in dark mode */
-    }
+ .chartjs-legend {
+    color: #FFFF00 !important; /* Brightest yellow for max contrast in dark mode */
+}
 }
 
 /* Ensure Chart.js legend text fits and is visible */
