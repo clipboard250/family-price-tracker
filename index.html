@@ -53,14 +53,15 @@
             <p id="price-output">Select item, year, and state to see prices.</p>
             <section id="chart-container">
                 <style>
-                    @media (prefers-color-scheme: dark) {
-                        .chartjs-legend {
-                            color: #FFEB3B !important;
-                            font-size: 14px !important;
-                            padding: 5px !important;
-                        }
-                    }
-                </style>
+    @media (prefers-color-scheme: dark) {
+        .chartjs-legend {
+            color: #FFEB3B !important;
+            font-size: 14px !important;
+            padding: 5px !important;
+            opacity: 1 !important; /* Force text to be fully visible */
+        }
+    }
+</style>
                 <canvas id="eggPriceChart"></canvas>
             </section>
             <p id="graph-footnote">📊 Select item, year, and state, then "Get data" to reveal the graph.</p>
