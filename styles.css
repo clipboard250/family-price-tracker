@@ -395,15 +395,12 @@ footer p {
         background: linear-gradient(to bottom, #555, #777); /* Lighten to match disclaimer */
         color: #F5F5F5;
     }
+
+    .chartjs-legend {
+        color: #FFEB3B !important; /* Brighter yellow for better contrast in dark mode */
+    }
 }
-/* Ensure Chart.js legend text fits and is visible */
-.chartjs-legend {
-    font-size: 14px !important;
-    padding: 10px !important;
-    max-width: 100% !important;
-    white-space: normal !important;
-    overflow: visible !important;
-}
+
 /* Ensure Chart.js legend text fits and is visible */
 .chartjs-legend {
     font-size: 14px !important;
@@ -412,10 +409,4 @@ footer p {
     white-space: normal !important;
     overflow: visible !important;
     color: #333 !important; /* Default color for light mode */
-}
-
-@media (prefers-color-scheme: dark) {
-    .chartjs-legend {
-    color: #FFD966 !important; /* Brighter yellow to stand out in dark mode */
-}
 }
