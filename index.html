@@ -52,6 +52,15 @@
             <h2 id="price-data">Price data</h2>
             <p id="price-output">Select item, year, and state to see prices.</p>
             <section id="chart-container">
+                <style>
+                    @media (prefers-color-scheme: dark) {
+                        .chartjs-legend {
+                            color: #FFEB3B !important;
+                            font-size: 14px !important;
+                            padding: 5px !important;
+                        }
+                    }
+                </style>
                 <canvas id="eggPriceChart"></canvas>
             </section>
             <p id="graph-footnote">📊 Select item, year, and state, then "Get data" to reveal the graph.</p>
@@ -80,7 +89,6 @@
     </footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
 <!-- Force rebuild 2025-03-18 3:00 PM -->
