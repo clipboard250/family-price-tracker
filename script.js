@@ -78,6 +78,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             return label;
                         }
                     }
+                },
+                legend: {
+                    labels: {
+                        color: function(context) {
+                            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? '#FFEB3B' : '#333';
+                        }
+                    }
                 }
             }
         }
@@ -137,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (item === "Eggs") {
             const stateKey = state === "US Average" ? "US_Average" : state.replace(" ", "_");
-price = eggPriceData[year]?.[stateKey];
+            price = eggPriceData[year]?.[stateKey];
         } else if (item === "Diapers") {
             price = diaperPriceData[year];
         }
@@ -176,23 +183,25 @@ price = eggPriceData[year]?.[stateKey];
             }
         }
     }
-// Function to update the graph
-function updateGraph(item, state) {
-    const labels = Object.keys(item === "Eggs" ? eggPriceData : diaperPriceData);
-    const prices = labels.map(year => {
-        if (item === "Eggs") {
-            const stateKey = state === "US Average" ? "US_Average" : state.replace(" ", "_");
-            return eggPriceData[year][stateKey] || 0;
-        } else {
-            return diaperPriceData[year] || 0;
-        }
-    });
 
-    priceChart.data.labels = labels;
-priceChart.data.datasets[0].label = `${item} price ($ ${item === "Eggs" ? "per dozen" : "per pack"})`;
-    priceChart.data.datasets[0].data = prices;
-    priceChart.update();
-}
+    // Function to update the graph
+    function updateGraph(item, state) {
+        const labels = Object.keys(item === "Eggs" ? eggPriceData : diaperPriceData);
+        const prices = labels.map(year => {
+            if (item === "Eggs") {
+                const stateKey = state === "US Average" ? "US_Average" : state.replace(" ", "_");
+                return eggPriceData[year][stateKey] || 0;
+            } else {
+                return diaperPriceData[year] || 0;
+            }
+        });
+
+        priceChart.data.labels = labels;
+        priceChart.data.datasets[0].label = `${item} price ($ ${item === "Eggs" ? "per dozen" : "per pack"})`;
+        priceChart.data.datasets[0].data = prices;
+        priceChart.update();
+    }
+
     // Add event listener to the button
     const button = document.querySelector("button");
     if (button) {
