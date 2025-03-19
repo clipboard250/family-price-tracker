@@ -80,10 +80,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 },
                 legend: {
+                    display: true, // Ensure the legend is always shown
                     labels: {
                         color: function(context) {
                             return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? '#FFEB3B' : '#333';
-                        }
+                        },
+                        opacity: 1 // Force full opacity
                     }
                 }
             }
